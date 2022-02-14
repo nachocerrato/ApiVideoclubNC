@@ -1,5 +1,6 @@
 ﻿using ApiVideoclubNC.Models;
 using ApiVideoclubNC.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -47,6 +48,7 @@ namespace ApiVideoclubNC.Controllers
             return this.repo.GetPeliculasGenero(id);
         }
 
+        [Authorize]
         [HttpGet]
         [Route("[action]")]
         public List<Cliente> GetClientes()
@@ -54,11 +56,20 @@ namespace ApiVideoclubNC.Controllers
             return this.repo.GetClientes();
         }
         
+        [Authorize]
         [HttpGet]
         [Route("[action]/{id}")]
         public List<ClientesPeliculasPedido> GetPedidosCliente(int id)
         {
             return this.repo.GetClientesPeliculasPedidos(id);
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("[action]")]
+        public List<ClientesPeliculasPedido> GetPedidos()
+        {
+            return this.repo.GetPedidos();
         }
 
     }

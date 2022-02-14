@@ -67,6 +67,11 @@ namespace ApiVideoclubNC.Repositories
                 .FirstOrDefault<ClientesPeliculasPedido>(x => x.IdPedido == idpedido);
         }
 
+        public List<ClientesPeliculasPedido> GetPedidos()
+        {
+            return this.context.PedidosCliente.ToList();
+        }
+
         public void DeletePedido(int idpedido)
         {
             ClientesPeliculasPedido pedidoCliente = this.FindPedido(idpedido);

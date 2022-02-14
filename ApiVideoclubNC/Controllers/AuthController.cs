@@ -35,11 +35,8 @@ namespace ApiVideoclubNC.Controllers
                 this.repo.ExisteCliente(model.Username, int.Parse(model.Password));
             Administrador admin =
                 this.repo.ExisteAdmin(model.Username, int.Parse(model.Password));
-            if(cliente == null || admin == null)
-            {
-                return Unauthorized();
-            }
-            else if(cliente != null)
+            
+            if(cliente != null && admin == null)
             {
                 Claim[] claims = new[]
                 {
@@ -67,7 +64,7 @@ namespace ApiVideoclubNC.Controllers
                     });
             }
 
-            else
+            else if(cliente == null && admin != null)
             {
                 Claim[] claims = new[]
                 {
@@ -93,6 +90,9 @@ namespace ApiVideoclubNC.Controllers
                         response =
                         new JwtSecurityTokenHandler().WriteToken(token)
                     });
+            }else
+            {
+                return Unauthorized();
             }
         }
     }
