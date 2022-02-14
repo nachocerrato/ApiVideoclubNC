@@ -15,5 +15,7 @@ namespace ApiVideoclubNC.Models
         public int IdAdmin { get; set; }
         [Column("NOMBRE")]
         public String Nombre { get; set; }
+        [Column("MAIL")]
+        public String Mail { get; set; }
     }
 }

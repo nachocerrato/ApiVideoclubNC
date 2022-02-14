@@ -21,9 +21,9 @@ namespace ApiVideoclubNC.Controllers
         {
             this.repo = repo;
         }
+        
         [HttpGet]
-        [Route("[action]")]
-        public List<Pelicula> GetPeliculas()
+        public List<Pelicula> Peliculas()
         {
             return this.repo.GetPeliculas();
         }
@@ -36,7 +36,7 @@ namespace ApiVideoclubNC.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public List<Genero> GetGeneros()
+        public List<Genero> Generos()
         {
             return this.repo.GetGeneros();
         }
@@ -51,7 +51,7 @@ namespace ApiVideoclubNC.Controllers
         [Authorize]
         [HttpGet]
         [Route("[action]")]
-        public List<Cliente> GetClientes()
+        public List<Cliente> Clientes()
         {
             return this.repo.GetClientes();
         }
@@ -59,7 +59,7 @@ namespace ApiVideoclubNC.Controllers
         [Authorize]
         [HttpGet]
         [Route("[action]/{id}")]
-        public List<ClientesPeliculasPedido> GetPedidosCliente(int id)
+        public List<ClientesPeliculasPedido> PedidosCliente(int id)
         {
             return this.repo.GetClientesPeliculasPedidos(id);
         }
@@ -67,7 +67,7 @@ namespace ApiVideoclubNC.Controllers
         [Authorize]
         [HttpGet]
         [Route("[action]")]
-        public List<ClientesPeliculasPedido> GetPedidos()
+        public List<ClientesPeliculasPedido> Pedidos()
         {
             return this.repo.GetPedidos();
         }

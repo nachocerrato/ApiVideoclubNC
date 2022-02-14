@@ -35,11 +35,11 @@ namespace ApiVideoclubNC.Repositories
         }
 
         //Añado esto porque he creado un perfil Administrador
-        public Administrador ExisteAdmin(string nombre, int idadmin)
+        public Administrador ExisteAdmin(string mail, int idadmin)
         {
             var consulta = from datos in this.context.Administradores
                            where datos.IdAdmin == idadmin
-                           && datos.Nombre == nombre
+                           && datos.Mail == mail
                            select datos;
             return consulta.FirstOrDefault();
         }
