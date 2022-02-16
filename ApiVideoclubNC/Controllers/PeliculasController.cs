@@ -43,7 +43,7 @@ namespace ApiVideoclubNC.Controllers
 
         [HttpGet]
         [Route("[action]/{id}")]
-        public List<Pelicula> GetPeliculasGenero(int id)
+        public List<Pelicula> PeliculasGenero(int id)
         {
             return this.repo.GetPeliculasGenero(id);
         }
