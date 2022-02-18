@@ -31,7 +31,7 @@ namespace ApiVideoclubNC.Models
         public int Duracion { get; set; }
         [Column("PRECIO")]
         public int Precio { get; set; }
-        [Column("YOUTUBE")]
+        [Column("ENLACEVIDEO")]
         public String Youtube { get; set; }
     }
 }
