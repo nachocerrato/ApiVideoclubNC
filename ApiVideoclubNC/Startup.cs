@@ -38,7 +38,8 @@ namespace ApiVideoclubNC
             //Seguridad
             HelperOAuthToken helper = new HelperOAuthToken(this.Configuration);
             services.AddTransient<HelperOAuthToken>(x => helper);
-            services.AddAuthentication(helper.GetAuthOptions()).AddJwtBearer(helper.GetJwtOptions());
+            services.AddAuthentication(helper.GetAuthOptions())
+                .AddJwtBearer(helper.GetJwtOptions());
 
 
             services.AddControllers();
@@ -61,7 +62,7 @@ namespace ApiVideoclubNC
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint
-                    ("/swagger/v1/swagger.json", "ApiVideoclubNC v1");
+                    (url: "/swagger/v1/swagger.json", name: "ApiVideoclubNC v1");
                 c.RoutePrefix = "";
             });
 
